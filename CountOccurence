@@ -1,0 +1,39 @@
+package arrayImpl;
+
+import java.util.Scanner;
+
+public class CountOccurence {
+
+	private static Scanner sc;
+
+	public static void main(String[] args) {
+		int i,x,n,count=0;
+		sc = new Scanner(System.in);
+		System.out.println("Enter the no of Elements to enter: ");
+		n=sc.nextInt();
+		
+		int arr[]= new int[n];
+		System.out.println("Enter all the Elements:");
+        for(i=0;i<n;i++)
+        {
+        	    arr[i]=sc.nextInt();    
+        }
+		
+        System.out.print("Enter the element of which you want to count number of occurrences:");
+        x = sc.nextInt();
+        
+        for(i = 0; i < n; i++)
+        {
+            if(arr[i] == x)
+            {
+                count++;
+            }
+        }
+        if(count==0)
+        	System.out.println("Number not found");
+        else
+            System.out.println("Number of Occurrence of the Element:"+count);
+
+	}
+
+}

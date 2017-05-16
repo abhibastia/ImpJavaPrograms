@@ -1,0 +1,31 @@
+package misc;
+
+import java.util.Scanner;
+
+public class FibonacciRecursive 
+{
+	private static Scanner sc;
+	
+	public static int fibonacci(int n)  
+	{
+		 if(n == 1)
+		     return 0;
+		 else if(n == 2)
+		     return 1;
+		 else
+		     return (fibonacci(n-1) + fibonacci(n-2));
+	}
+
+	public static void main(String[] args) 
+	{
+		sc = new Scanner(System.in);
+		System.out.println("Enter the no of element for Fibonacci series:");
+		int n=sc.nextInt();
+		System.out.println("The elements of fibonacci series:" );
+		for(int i=1;i<=n;i++)
+		{
+		    System.out.printf("%s ",fibonacci(i));
+		}
+	}
+
+}

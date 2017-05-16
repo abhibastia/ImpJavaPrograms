@@ -1,0 +1,85 @@
+package collectionImpl;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class MyArrayList 
+{
+	private Object[] MyArray;
+	private int actSize=0;
+	
+    public MyArrayList(){
+        MyArray = new Object[10];
+    }
+    public Object get(int index)
+    {
+    	if(index<actSize)
+    		return MyArray[index];
+    	else
+    		throw new ArrayIndexOutOfBoundsException();
+    }
+    public void add(Object ob)
+    {
+    	if(MyArray.length-actSize<=5)
+    	{
+    		increaseListSize();
+    	}
+    	MyArray[actSize++]=ob;
+    }
+    public Object remove(int index)
+    {
+    	if(index<actSize)
+    	{
+            Object ob=MyArray[index];
+            MyArray[index]=null;
+            int temp=index;
+            while(index<actSize)
+            {
+            	MyArray[temp]=MyArray[temp+1];
+            	MyArray[temp+1]=null;
+            	temp++;
+            }
+            actSize--;
+            return ob;
+    	}
+    	else
+    		throw new ArrayIndexOutOfBoundsException();
+    }
+    private void increaseListSize() 
+    {
+		MyArray=Arrays.copyOf(MyArray,MyArray.length * 2);
+		System.out.println("New ArrayList lenghth:"+MyArray.length);
+	}
+    public int Size()
+    {
+    	return actSize;
+    }
+    
+	public static void main(String[] args) 
+	{
+        ArrayList<Integer> mal=new ArrayList<Integer>();
+        mal.add(4);
+        mal.add(6);
+        mal.add(8);
+        mal.add(10);
+        mal.add(12);
+        mal.add(14);
+        for(int i=0;i<mal.size();i++)
+        {
+        	System.out.println(mal.get(i)+" ");
+        }
+        
+        mal.add(16);
+        
+        System.out.println("Element at index 4:"+mal.get(4));
+        System.out.println("List size:"+mal.size());
+        System.out.println("Removing element at index 3: "+mal.remove(3));
+        
+        System.out.println("DIsplaying the final List:");
+        for(int i=0;i<mal.size();i++)
+        {
+        	System.out.println(mal.get(i)+" ");
+        }
+	}
+
+}

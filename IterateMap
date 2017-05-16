@@ -1,0 +1,27 @@
+package collectionImpl;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+public class IterateHashMap 
+{
+    public static void main(String a[])
+    {
+        Map<String, Integer> map = new HashMap<String, Integer>();
+        map.put("java", 26);
+        map.put("C++", 67);
+        map.put("SQL", 21);
+        map.put("Unix", 7);
+        map.put("PHP", 36);
+        map.put("Perl", 91);
+        
+		Iterator it = map.entrySet().iterator();
+	    while (it.hasNext()) 
+	    {
+	        Map.Entry pair = (Map.Entry)it.next();
+	        System.out.println(pair.getKey() + " = " + pair.getValue());
+	        it.remove(); // avoids a ConcurrentModificationException
+	    }        
+   }
+}

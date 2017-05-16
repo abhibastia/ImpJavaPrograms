@@ -1,0 +1,31 @@
+package misc;
+
+public class MySingleton 
+{
+    private static MySingleton obj=null;
+    
+    private MySingleton()
+    {
+    	System.out.println("Creating object");
+    }
+    
+    public static MySingleton getInstance()
+    {
+    	if(obj==null)
+    	{
+    		obj=new MySingleton();
+    	}
+    	return obj;
+    }
+    public void print()
+    {
+    	System.out.println("Printing something");
+    }
+	public static void main(String[] args) 
+	{
+        MySingleton ms=getInstance();
+        ms.print();
+        
+	}
+
+}
